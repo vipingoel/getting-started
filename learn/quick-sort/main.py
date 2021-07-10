@@ -32,16 +32,13 @@ def partition_random(arr, low, high):
     pivot = arr[pivot_index]
     i = low
     # low to high-1
-    for j in range(low, pivot_index):
-        if arr[j] < pivot:
-            arr[i], arr[j] = arr[j], arr[i]
-            i += 1
+    for j in range(low, high+1):
+        if j == pivot_index:
+            continue
 
-    for j in range(pivot_index+1, high+1):
         if arr[j] < pivot:
             arr[i], arr[j] = arr[j], arr[i]
             i += 1
-            # skip the replacement for pivot element
             if i == pivot_index:
                 i += 1
 
